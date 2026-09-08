@@ -9,18 +9,20 @@ import java.io.InputStream;
 public class DataImportRunner implements CommandLineRunner {
 
     private final FileService fileService;
+    private final XmlParser xmlParser;
 
-    public DataImportRunner(FileService fileService) {
+    public DataImportRunner(FileService fileService, XmlParser xmlParser) {
         this.fileService = fileService;
+        this.xmlParser = xmlParser;
     }
 
     @Override
     public void run(String... args) throws Exception {
         InputStream xmlStream = fileService.downloadAndExtractXml("https://www.smartform.cz/download/kopidlno.xml.zip");
 
-        //TODO: dočasný test FileService, nahradit skutečnou logikou (parsing + uložení)
-        byte[] buffer = new byte[500];
-        int bytesRead = xmlStream.read(buffer);
-        System.out.println(new String(buffer, 0, bytesRead));
+        ParseResult result = xmlParser.parseXml(xmlStream);
+
+        //TODO dočasný test
+        System.out.println(result);
     }
 }

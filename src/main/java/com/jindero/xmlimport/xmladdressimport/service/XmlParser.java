@@ -37,8 +37,9 @@ public class XmlParser {
         try {
             XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
             XMLStreamReader reader = xmlInputFactory.createXMLStreamReader(xmlStream);
+            Boolean dokonceno = false;
 
-            while (reader.hasNext()) {
+            while (reader.hasNext() && dokonceno==false) {
                 int event = reader.next();
 
                 switch (event) {
@@ -87,6 +88,8 @@ public class XmlParser {
                         if (end.equals("CastObce")){
                             listCasti.add(cast);
                             state = State.NONE;
+                    } if (end.equals("CastiObci")){
+                            dokonceno = true;
                     }
                         break;
                 }
