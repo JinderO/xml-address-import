@@ -2,8 +2,6 @@
 
 Jednoduchá Java aplikace, která stáhne zazipovaný XML soubor s katastrálními daty, zpracuje ho a uloží vybrané údaje (obec a její části) do PostgreSQL databáze.
 
-Vytvořeno jako řešení zadaného úkolu pro Trixi Software.
-
 ---
 
 ## Co aplikace dělá
