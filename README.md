@@ -56,20 +56,18 @@ Nebo přes tlačítko Run v IntelliJ IDEA.
 
 Po spuštění appka automaticky stáhne data, zpracuje je a uloží do databáze. V konzoli uvidíš log o průběhu importu.
 
----
-
 ## Struktura projektu
+
+```
 com.jindero.xmlimport.xmladdressimport
-├── entity # JPA entity (Obec, CastObce)
-├── repository # Spring Data JPA repository
-└── service # Business logika
-├── FileService # Stažení a rozbalení ZIP souboru
-├── XmlParser # Parsování XML pomocí StAX
-├── ParseResult # DTO pro výsledek parsování
-└── DataImportRunner # Spouští celý proces importu při startu appky
-
-
----
+├── entity        # JPA entity (Obec, CastObce)
+├── repository    # Spring Data JPA repository
+└── service       # Business logika
+    ├── FileService       # Stažení a rozbalení ZIP souboru
+    ├── XmlParser         # Parsování XML pomocí StAX
+    ├── ParseResult       # DTO pro výsledek parsování
+    └── DataImportRunner  # Spouští celý proces importu při startu appky
+```
 
 ## Poznámky k návrhu
 
