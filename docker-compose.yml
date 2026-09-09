@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: xml-postgres
+    environment:
+      POSTGRES_DB: xml_address_import
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
